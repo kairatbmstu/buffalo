@@ -17,21 +17,17 @@ matrix:
   - go: "tip"
     env:
       - GO111MODULE=on
+  - os: linux
+    language: go
+    dist: trusty
+    sudo: required
+  - os: windows
+    language: go
   allow_failures:
     - go: "tip"
 
 services:
   - docker
-
-os:
-  - osx
-  - windows
-  - os: linux
-    dist: trusty
-    sudo: required
-
-dist: trusty
-sudo: required
 
 # skip default (go get -t -v ./...) install step
 install:
