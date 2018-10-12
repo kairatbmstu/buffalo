@@ -5,6 +5,7 @@ set -e
 export GOOS=$(go env GOOS)
 
 testDocker() {
+echo "using docker"
 docker build \
   --build-arg CODECOV_TOKEN=$CODECOV_TOKEN \
   --build-arg CI=$CI \
@@ -22,6 +23,7 @@ docker build \
 }
 
 goTest() {
+echo "using go test"
 go get -u github.com/alecthomas/gometalinter
 gometalinter --install
 go get github.com/gobuffalo/packr/packr
