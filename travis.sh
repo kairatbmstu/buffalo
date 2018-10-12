@@ -22,21 +22,12 @@ docker build \
   .
 }
 
-goTest() {
-echo "using go test"
-go version
-go get -v github.com/gobuffalo/packr/packr
-go get -tags "sqlite integration_test" -t -u -v ./...
-packr
-go test -tags "sqlite integration_test" -race ./...
-}
-
 echo $GOOS
 
 if [[ $GOOS == "darwin" ]]; then
 echo "testing for darwin"
 # travis doesn't support docker for mac
-goTest
+go test -tags "sqlite integration_test" -race ./...
 fi
 
 if [[ $GOOS == "linux" ]]; then
@@ -46,5 +37,5 @@ fi
 
 if [[ $GOOS == "windows" ]]; then
 echo "testing for windows"
-goTest
+go test -tags "sqlite integration_test" -race ./...
 fi
