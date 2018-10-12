@@ -23,6 +23,8 @@ matrix:
     sudo: required
   - os: windows
     language: go
+  - os: osx
+    language: go
   allow_failures:
     - go: "tip"
 
