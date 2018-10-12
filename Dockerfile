@@ -24,7 +24,8 @@ COPY . .
 RUN make ci-deps
 
 RUN packr clean
-RUN gometalinter --vendor --deadline=5m ./... --skip=internal
+RUN gofmt -l -w -s .
+RUN gometalinter --vendor ./... --deadline=30s --skip=internal --disable=goimports --enable=gofmt
 RUN make install
 
 RUN buffalo version
