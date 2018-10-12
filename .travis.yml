@@ -3,28 +3,28 @@ language: go
 
 matrix:
   include:
-  - go: "1.9.7"
-  - go: "1.10.x"
-  - go: "1.11.x"
-    env:
-      - GO111MODULE=off
-  - go: "1.11.x"
-    env:
-      - GO111MODULE=on
-  - go: "tip"
-    env:
-      - GO111MODULE=off
-  - go: "tip"
-    env:
-      - GO111MODULE=on
+  # - go: "1.9.7"
+  # - go: "1.10.x"
+  # - go: "1.11.x"
+  #   env:
+  #     - GO111MODULE=off
+  # - go: "1.11.x"
+  #   env:
+  #     - GO111MODULE=on
+  # - go: "tip"
+  #   env:
+  #     - GO111MODULE=off
+  # - go: "tip"
+  #   env:
+  #     - GO111MODULE=on
   - os: linux
     language: go
     dist: trusty
     sudo: required
   - os: windows
-    language: go
+    go: "1.11.x"
   - os: osx
-    language: go
+    go: "1.9.7"
   allow_failures:
     - go: "tip"
 
