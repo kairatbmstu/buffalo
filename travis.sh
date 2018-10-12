@@ -24,7 +24,7 @@ docker build \
 echo $GOOS
 
 if [[ $GOOS == "darwin" ]]; then
-testDocker
+make ci-test
 fi
 
 if [[ $GOOS == "linux" ]]; then
@@ -32,5 +32,5 @@ testDocker
 fi
 
 if [[ $GOOS == "windows" ]]; then
-testDocker
+make ci-test
 fi
