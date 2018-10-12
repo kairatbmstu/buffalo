@@ -25,12 +25,13 @@ lint:
 	gometalinter --vendor ./... --deadline=1m --skip=internal
 
 ci-deps:
+	$(GO_BIN) get -u github.com/alecthomas/gometalinter
+	gometalinter --install
 	$(GO_BIN) get github.com/gobuffalo/packr/packr
-	$(GO_BIN) get github.com/markbates/grift
-	$(GO_BIN) get -tags ${TAGS} -t -u -v ./...
+	$(GO_BIN) get -tags "${TAGS} integration_test" -t -u -v ./...
 
 ci-test: lint
-	$(GO_BIN) test -tags ${TAGS} -race ./...
+	$(GO_BIN) test -tags "${TAGS} integration_test" -race ./...
 
 update:
 	$(GO_BIN) get -u -tags ${TAGS}
