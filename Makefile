@@ -24,15 +24,6 @@ test:
 lint:
 	gometalinter --vendor ./... --deadline=30s --skip=internal --disable=goimports --enable=gofmt
 
-ci-deps:
-	$(GO_BIN) get -u github.com/alecthomas/gometalinter
-	gometalinter --install
-	$(GO_BIN) get github.com/gobuffalo/packr/packr
-	$(GO_BIN) get -tags "sqlite integration_test" -t -u -v ./...
-
-ci-test: ci-deps
-	$(GO_BIN) test -tags "sqlite integration_test" -race ./...
-
 update:
 	$(GO_BIN) get -u -tags ${TAGS}
 ifeq ($(GO111MODULE),on)

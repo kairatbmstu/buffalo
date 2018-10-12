@@ -21,12 +21,21 @@ docker build \
   .
 }
 
+goTest() {
+go get -u github.com/alecthomas/gometalinter
+gometalinter --install
+go get github.com/gobuffalo/packr/packr
+go get -tags "sqlite integration_test" -t -u -v ./...
+packr
+go test -tags "sqlite integration_test" -race ./...
+}
+
 echo $GOOS
 
 if [[ $GOOS == "darwin" ]]; then
 echo "testing for darwin"
 # travis doesn't support docker for mac
-make ci-test
+goTest
 fi
 
 if [[ $GOOS == "linux" ]]; then
@@ -36,9 +45,5 @@ fi
 
 if [[ $GOOS == "windows" ]]; then
 echo "testing for windows"
-choco -h
-choco install make -y
-make ci-test
-choco install docker -y
-testDocker
+goTest
 fi
