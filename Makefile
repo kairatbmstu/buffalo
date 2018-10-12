@@ -22,7 +22,7 @@ test:
 	$(GO_BIN) test -tags ${TAGS} ./...
 
 lint:
-	gometalinter --vendor ./... --deadline=1m --skip=internal
+	gometalinter --vendor ./... --deadline=30s --skip=internal --disable=goimports --enable=gofmt
 
 ci-deps:
 	$(GO_BIN) get -u github.com/alecthomas/gometalinter
