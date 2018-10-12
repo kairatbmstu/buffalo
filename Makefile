@@ -21,15 +21,18 @@ test:
 	packr
 	$(GO_BIN) test -tags ${TAGS} ./...
 
+lint:
+	gometalinter --vendor ./... --deadline=1m --skip=internal
+
 ci-deps:
 	$(GO_BIN) get github.com/gobuffalo/packr/packr
+	$(GO_BIN) get github.com/markbates/grift
 	$(GO_BIN) get -tags ${TAGS} -t -u -v ./...
 
 ci-test:
-	docker build . --no-cache
-
-lint:
-	gometalinter --vendor ./... --deadline=1m --skip=internal
+	make ci-deps
+	make lint
+	$(GO_BIN) test -tags ${TAGS} -race ./...
 
 update:
 	$(GO_BIN) get -u -tags ${TAGS}
