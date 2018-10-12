@@ -13,7 +13,7 @@ os:
   - osx
 
 # skip default (go get -t -v ./...) install step
-install: go get github.com/markbates/grift
+install: true
 
 script: ./travis.sh
 # script:
