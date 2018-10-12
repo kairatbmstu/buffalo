@@ -4,6 +4,25 @@ sudo: required
 # we don't use it, but we also do not want default (ruby) image
 language: go
 
+matrix:
+  include:
+  - go: "1.9.7"
+  - go: "1.10.x"
+  - go: "1.11.x"
+    env:
+      - GO111MODULE=off
+  - go: "1.11.x"
+    env:
+      - GO111MODULE=on
+  - go: "tip"
+    env:
+      - GO111MODULE=off
+  - go: "tip"
+    env:
+      - GO111MODULE=on
+  allow_failures:
+    - go: "tip"
+
 services:
   - docker
 

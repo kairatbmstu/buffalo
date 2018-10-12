@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 export GOOS=$(go env GOOS)
 
@@ -24,6 +24,7 @@ docker build \
 
 goTest() {
 echo "using go test"
+go version
 go get -u github.com/alecthomas/gometalinter
 gometalinter --install
 go get github.com/gobuffalo/packr/packr
