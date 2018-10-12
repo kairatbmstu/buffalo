@@ -1,6 +1,7 @@
 package grifts
 
 import (
+	"os"
 	"os/exec"
 	"runtime"
 
@@ -9,10 +10,12 @@ import (
 
 var _ = grift.Add("travis", func(c *grift.Context) error {
 	cmd := exec.CommandContext(c, "make", "ci-test")
-	os := runtime.GOOS
-	switch os {
+	goos := runtime.GOOS
+	switch goos {
 	case "linux":
-		cmd
+		// cmd
 	}
-	return nil
+	cmd.Stderr = os.Stderr
+	cmd.Stdout = os.Stdout
+	return cmd.Run()
 })
