@@ -24,15 +24,19 @@ docker build \
 echo $GOOS
 
 if [[ $GOOS == "darwin" ]]; then
+echo "testing for darwin"
 # travis doesn't support docker for mac
 make ci-test
 fi
 
 if [[ $GOOS == "linux" ]]; then
+echo "testing for linux"
 testDocker
 fi
 
 if [[ $GOOS == "windows" ]]; then
+echo "testing for windows"
+choco -h
 choco install make -y
 make ci-test
 choco install docker -y
