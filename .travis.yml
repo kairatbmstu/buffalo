@@ -7,6 +7,11 @@ language: go
 services:
   - docker
 
+os:
+  - windows
+  - linux
+  - osx
+
 # skip default (go get -t -v ./...) install step
 install: true
 
