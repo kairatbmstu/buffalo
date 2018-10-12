@@ -13,7 +13,8 @@ os:
   - osx
 
 # skip default (go get -t -v ./...) install step
-install: make ci-deps
+install: go get github.com/markbates/grift
+
 script: grift travis
 # script:
 #   - docker build

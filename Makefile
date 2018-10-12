@@ -29,9 +29,7 @@ ci-deps:
 	$(GO_BIN) get github.com/markbates/grift
 	$(GO_BIN) get -tags ${TAGS} -t -u -v ./...
 
-ci-test:
-	make ci-deps
-	make lint
+ci-test: lint
 	$(GO_BIN) test -tags ${TAGS} -race ./...
 
 update:
