@@ -25,7 +25,7 @@ docker build \
 goTest() {
 echo "using go test"
 go version
-go get github.com/gobuffalo/packr/packr
+go get -v github.com/gobuffalo/packr/packr
 go get -tags "sqlite integration_test" -t -u -v ./...
 packr
 go test -tags "sqlite integration_test" -race ./...
