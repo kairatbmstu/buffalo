@@ -1,6 +1,8 @@
 module github.com/gobuffalo/buffalo
 
 require (
+	github.com/alecthomas/gometalinter v2.0.11+incompatible // indirect
+	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/dustin/go-humanize v1.0.0
 	github.com/fatih/color v1.7.0
@@ -26,6 +28,7 @@ require (
 	github.com/gobuffalo/release v1.0.39 // indirect
 	github.com/gobuffalo/tags v2.0.11+incompatible
 	github.com/gobuffalo/x v0.0.0-20181007152206-913e47c59ca7
+	github.com/google/shlex v0.0.0-20150127133951-6f45313302b9 // indirect
 	github.com/gorilla/context v1.1.1
 	github.com/gorilla/mux v1.6.2
 	github.com/gorilla/sessions v1.1.3
@@ -49,5 +52,6 @@ require (
 	golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f
 	golang.org/x/sys v0.0.0-20181011152604-fa43e7bc11ba // indirect
 	golang.org/x/tools v0.0.0-20181012125816-87312bc3edd0
+	gopkg.in/alecthomas/kingpin.v3-unstable v3.0.0-20180810215634-df19058c872c // indirect
 	gopkg.in/mail.v2 v2.0.0-20180731213649-a0242b2233b4
 )

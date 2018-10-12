@@ -30,7 +30,7 @@ ci-deps:
 	$(GO_BIN) get github.com/gobuffalo/packr/packr
 	$(GO_BIN) get -tags "${TAGS} integration_test" -t -u -v ./...
 
-ci-test: lint
+ci-test: ci-deps lint
 	$(GO_BIN) test -tags "${TAGS} integration_test" -race ./...
 
 update:
